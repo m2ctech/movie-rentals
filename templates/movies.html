@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block body %} {% if movies %}
+<table class="table table-bordered table-hover mt-4" style="margin-bottom:450px">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Daily Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for movie in movies %}
+    <tr>
+      <td>
+        <a href="{% url 'rentals:details' movie.id %}">{{ movie.title }}</a>
+      </td>
+      <td>{{movie.genre}}</td>
+      <td>{{movie.number_in_stock}}</td>
+      <td>{{movie.daily_rate}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<div class="container jumbotron">
+  <h2>No Stock</h2>
+</div>
+{% endif %} {% endblock %}

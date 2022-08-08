@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block body %}
+
+<div class="container jumbotron card mt-4">
+  
+   
+    {% if request.user.is_authenticated %}
+     <h1>Welcome To Movie Rentals {{user.username}}</h1>
+     <h2>Goto <a href="{% url 'rentals:movies' %}" class="btn btn-primary">movies</a> 
+    To view available movies</h2>
+    {% else %}
+    <h1>Welcome To Movie Rentals</h1>
+    {% endif %}</h1>
+    
+  <img src="https://4kwallpapers.com/images/walls/thumbs_2t/8271.jpg" alt="" />
+</div>
+
+{% endblock %}
